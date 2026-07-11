@@ -924,7 +924,7 @@ CATEGORY IMAGE GRID
 .category-images > img,
 .extra-row img{
 
-    aspect-ratio:16/10;
+    aspect-ratio:16/9;
 
     object-fit:cover;
 
