@@ -912,8 +912,6 @@ CATEGORY IMAGE GRID
 
 
 .category-images > img,
-
-
 .extra-row img{
 
 
@@ -926,7 +924,12 @@ CATEGORY IMAGE GRID
     object-fit:cover;
 
 
-    border-radius:28px;
+    border-radius:14px;
+
+
+    box-shadow:
+
+    0 20px 40px rgba(0,0,0,.14);
 
 
     transition:.4s ease;
@@ -941,6 +944,11 @@ CATEGORY IMAGE GRID
 
 
     transform:scale(1.03);
+
+
+    box-shadow:
+
+    0 30px 70px rgba(0,0,0,.18);
 
 
 }
