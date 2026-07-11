@@ -674,23 +674,16 @@ WORK
 ========================= */
 
 
+/* =========================
+WORK
+========================= */
+
+
 .work{
 
     padding:220px 40px;
 
-    background:
-
-    linear-gradient(
-
-        180deg,
-
-        #fafafa 0%,
-
-        #ffffff 45%,
-
-        #ffffff 100%
-
-    );
+    background:#ffffff;
 
 }
 
