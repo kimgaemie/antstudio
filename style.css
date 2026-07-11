@@ -174,32 +174,31 @@ HERO
 
     letter-spacing:-.07em;
 
-}
-
-.hero-copy h1{
-
-    position:relative;
 
     background:
     linear-gradient(
         90deg,
         #000 0%,
         #000 40%,
-        #9edfff 50%,
+        #bfefff 50%,
         #000 60%,
         #000 100%
     );
 
+
     background-size:200% auto;
 
+
     color:transparent;
+
 
     -webkit-background-clip:text;
 
     background-clip:text;
 
+
     animation:
-    textLight 6s linear infinite;
+    textLight 8s ease-in-out infinite;
 
 }
 
@@ -1252,6 +1251,25 @@ footer{
     50px 20px;
 
 }
+
+
+}
+
+@keyframes textLight{
+
+
+    0%{
+
+        background-position:200% center;
+
+    }
+
+
+    100%{
+
+        background-position:-200% center;
+
+    }
 
 
 }
