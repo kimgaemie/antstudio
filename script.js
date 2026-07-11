@@ -181,37 +181,46 @@ moreButtons.forEach(button=>{
     categoryImages.querySelectorAll(".extra-row");
 
 
+    let currentIndex = 0;
+
+
 
     button.addEventListener("click",()=>{
 
 
-        const isOpen =
-        button.classList.contains("active");
+        if(currentIndex < extraRows.length){
 
 
-
-        extraRows.forEach(row=>{
-
-
-            row.classList.toggle(
-                "show",
-                !isOpen
-            );
+            extraRows[currentIndex].classList.add("show");
 
 
-        });
+            currentIndex++;
 
 
+            if(currentIndex === extraRows.length){
 
-        button.classList.toggle(
-            "active"
-        );
+                button.innerText="접기";
+
+            }
 
 
+        }else{
 
-        button.innerText =
-        isOpen ? "더보기" : "접기";
 
+            extraRows.forEach(row=>{
+
+                row.classList.remove("show");
+
+            });
+
+
+            currentIndex=0;
+
+
+            button.innerText="더보기";
+
+
+        }
 
 
     });
