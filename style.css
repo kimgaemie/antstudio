@@ -676,14 +676,23 @@ WORK
 
 .work{
 
+    padding:220px 40px;
 
-    padding:
+    background:
 
-    220px 40px;
+    linear-gradient(
 
+        180deg,
+
+        #fafafa 0%,
+
+        #ffffff 45%,
+
+        #ffffff 100%
+
+    );
 
 }
-
 
 
 .work-inner{
@@ -693,22 +702,6 @@ WORK
 
 
     margin:auto;
-
-
-}
-
-
-
-.work-title{
-
-
-    font-size:64px;
-
-
-    margin-bottom:120px;
-
-
-    letter-spacing:-.06em;
 
 
 }
@@ -735,20 +728,6 @@ WORK
 
 
 
-.category-number{
-
-
-    color:#999;
-
-
-    font-size:15px;
-
-
-    margin-bottom:30px;
-
-
-}
-
 
 
 .category-text h3{
@@ -760,7 +739,7 @@ WORK
     line-height:1;
 
 
-    margin-bottom:25px;
+    margin-bottom:35px;
 
 
     letter-spacing:-.02em;
