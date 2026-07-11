@@ -476,10 +476,22 @@ HERO SLIDER
     transform:translateY(-50%);
 
 
-    width:50px;
+
+    width:54px;
 
 
-    height:50px;
+    height:54px;
+
+
+
+    display:flex;
+
+
+    align-items:center;
+
+
+    justify-content:center;
+
 
 
     border:none;
@@ -488,20 +500,73 @@ HERO SLIDER
     border-radius:50%;
 
 
-    background:white;
+
+    background:
+
+    rgba(255,255,255,.55);
 
 
-    font-size:30px;
+
+    backdrop-filter:
+
+    blur(20px);
+
+
+
+    -webkit-backdrop-filter:
+
+    blur(20px);
+
+
+
+    color:#000;
+
+
+
+    font-size:22px;
+
+
+
+    font-weight:300;
+
+
+
+    line-height:1;
+
 
 
     cursor:pointer;
 
 
+
     z-index:5;
+
+
+
+    transition:.3s ease;
 
 
 }
 
+
+
+.slider-arrow:hover{
+
+
+    background:
+
+    rgba(255,255,255,.85);
+
+
+
+    transform:
+
+    translateY(-50%)
+
+    scale(1.08);
+
+
+}
 
 
 .slider-arrow-left{
