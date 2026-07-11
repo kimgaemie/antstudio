@@ -910,15 +910,44 @@ CATEGORY IMAGE GRID
 
 
 
-
 .category-images > img,
 .category-images > a,
 .extra-row img,
 .extra-row a{
 
-
     width:100%;
 
+}
+
+/* 링크 없는 이미지 스타일 */
+
+.category-images > img,
+.extra-row img{
+
+    aspect-ratio:16/10;
+
+    object-fit:cover;
+
+    border-radius:14px;
+
+    box-shadow:
+
+    0 20px 40px rgba(0,0,0,.14);
+
+    transition:.4s ease;
+
+}
+
+
+.category-images > img:hover,
+.extra-row img:hover{
+
+    transform:scale(1.03);
+
+
+    box-shadow:
+
+    0 30px 70px rgba(0,0,0,.18);
 
 }
 
@@ -2098,12 +2127,10 @@ MOBILE
 
 
 
-.category-images > a,
-.extra-row a{
-
+.category-images > img,
+.extra-row img{
 
     border-radius:18px;
-
 
 }
 
