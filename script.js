@@ -168,51 +168,53 @@ document.querySelectorAll(".more-button");
 moreButtons.forEach(button=>{
 
 
-const categoryImages =
-button.previousElementSibling;
+    const categoryImages =
+    button.previousElementSibling;
 
 
-const extraRows =
-categoryImages.querySelectorAll(".extra-row");
+    if(!categoryImages){
+        return;
+    }
 
 
-let currentIndex = 0;
-
-
-
-button.addEventListener("click",()=>{
-
-
-if(currentIndex < extraRows.length){
-
-
-extraRows[currentIndex].style.display="grid";
-
-
-currentIndex++;
-
-
-}
+    const extraRows =
+    categoryImages.querySelectorAll(".extra-row");
 
 
 
-if(currentIndex >= extraRows.length){
+    button.addEventListener("click",()=>{
 
 
-button.innerText="접기";
-
-
-}else{
-
-
-button.innerText="더보기";
-
-
-}
+        const isOpen =
+        button.classList.contains("active");
 
 
 
-});
+        extraRows.forEach(row=>{
+
+
+            row.classList.toggle(
+                "show",
+                !isOpen
+            );
+
+
+        });
+
+
+
+        button.classList.toggle(
+            "active"
+        );
+
+
+
+        button.innerText =
+        isOpen ? "더보기" : "접기";
+
+
+
+    });
 
 
 });
