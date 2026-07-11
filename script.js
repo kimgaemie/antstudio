@@ -28,46 +28,49 @@ let heroPosition = 0;
 
 function getHeroMax(){
 
-if(!heroTrack || !heroSlider){
+    if(!heroTrack || !heroSlider){
 
-return 0;
+        return 0;
+
+    }
+
+
+    return Math.max(
+        heroTrack.scrollWidth - heroSlider.clientWidth,
+        0
+    );
 
 }
 
 
-return Math.max(
-heroTrack.scrollWidth - heroSlider.clientWidth,
-0
-);
-
-}
 
 
 
 function moveHero(){
 
-const max =
-getHeroMax();
+    const max =
+    getHeroMax();
 
 
-if(heroPosition < 0){
+    if(heroPosition < 0){
 
-heroPosition = 0;
+        heroPosition = 0;
+
+    }
+
+
+    if(heroPosition > max){
+
+        heroPosition = max;
+
+    }
+
+
+    heroTrack.style.transform =
+    `translateX(-${heroPosition}px)`;
 
 }
 
-
-if(heroPosition > max){
-
-heroPosition = max;
-
-}
-
-
-heroTrack.style.transform =
-`translateX(-${heroPosition}px)`;
-
-}
 
 
 
@@ -75,74 +78,71 @@ heroTrack.style.transform =
 if(heroTrack){
 
 
-if(heroRight){
+    if(heroRight){
 
-heroRight.addEventListener(
-"click",
-()=>{
+        heroRight.addEventListener(
+        "click",
+        ()=>{
 
-heroPosition += 476;
+            heroPosition += 476;
 
-moveHero();
+            moveHero();
 
-}
+        });
 
-);
-
-}
+    }
 
 
 
-if(heroLeft){
 
-heroLeft.addEventListener(
-"click",
-()=>{
+    if(heroLeft){
 
-heroPosition -= 476;
+        heroLeft.addEventListener(
+        "click",
+        ()=>{
 
-moveHero();
+            heroPosition -= 476;
 
-}
+            moveHero();
 
-);
+        });
 
-}
-
+    }
 
 
-if(heroSlider){
-
-heroSlider.addEventListener(
-"wheel",
-(e)=>{
 
 
-if(
-Math.abs(e.deltaY)
->
-Math.abs(e.deltaX)
-){
 
-e.preventDefault();
+    if(heroSlider){
 
-
-heroPosition += e.deltaY;
+        heroSlider.addEventListener(
+        "wheel",
+        (e)=>{
 
 
-moveHero();
+            if(
+                Math.abs(e.deltaY)
+                >
+                Math.abs(e.deltaX)
+            ){
 
-}
+                e.preventDefault();
 
 
-},
-{
-passive:false
-}
+                heroPosition += e.deltaY;
 
-);
 
-}
+                moveHero();
+
+            }
+
+
+        },
+        {
+            passive:false
+        });
+
+    }
 
 
 }
@@ -165,6 +165,7 @@ const moreButtons =
 document.querySelectorAll(".more-button");
 
 
+
 moreButtons.forEach(button=>{
 
 
@@ -172,55 +173,84 @@ moreButtons.forEach(button=>{
     button.previousElementSibling;
 
 
+
     if(!categoryImages){
+
         return;
+
     }
+
+
 
 
     const extraRows =
     categoryImages.querySelectorAll(".extra-row");
 
 
+
     let currentIndex = 0;
 
 
 
-    button.addEventListener("click",()=>{
 
 
+    button.addEventListener(
+    "click",
+    ()=>{
+
+
+
+        // 아직 열 행이 남아있으면
         if(currentIndex < extraRows.length){
 
 
-            extraRows[currentIndex].classList.add("show");
+
+            extraRows[currentIndex]
+            .classList
+            .add("show");
+
 
 
             currentIndex++;
 
 
+
+            // 마지막까지 열었을 때
             if(currentIndex === extraRows.length){
 
-                button.innerText="접기";
+                button.innerText =
+                "접기";
 
             }
 
 
-        }else{
+        }
+
+
+        // 접기
+        else{
 
 
             extraRows.forEach(row=>{
 
+
                 row.classList.remove("show");
+
 
             });
 
 
-            currentIndex=0;
+
+            currentIndex = 0;
 
 
-            button.innerText="더보기";
+
+            button.innerText =
+            "더보기";
 
 
         }
+
 
 
     });
@@ -241,9 +271,10 @@ SCROLL REVEAL
 ========================= */
 
 
-const reveals =
-document.querySelectorAll(".reveal");
+const reveals = document.querySelectorAll(".reveal");
 
+
+if(reveals.length > 0){
 
 
 const observer =
@@ -260,9 +291,7 @@ if(entry.isIntersecting){
 entry.target.classList.add("show");
 
 
-observer.unobserve(
-entry.target
-);
+observer.unobserve(entry.target);
 
 
 }
@@ -273,7 +302,7 @@ entry.target
 
 },
 {
-threshold:0.15
+threshold:0.01
 }
 
 );
@@ -282,11 +311,12 @@ threshold:0.15
 
 reveals.forEach(item=>{
 
-
 observer.observe(item);
 
-
 });
+
+
+}
 
 
 
@@ -307,16 +337,19 @@ document.getElementById(
 );
 
 
+
 const privacyModal =
 document.getElementById(
 "privacyModal"
 );
 
 
+
 const privacyClose =
 document.getElementById(
 "privacyClose"
 );
+
 
 
 const privacyOverlay =
@@ -327,64 +360,85 @@ document.querySelector(
 
 
 
+
 function openPrivacy(){
 
-if(privacyModal){
 
-privacyModal.classList.add(
-"active"
-);
+    if(privacyModal){
+
+        privacyModal.classList.add(
+            "active"
+        );
+
+    }
+
 
 }
 
-}
 
 
 
 function closePrivacy(){
 
-if(privacyModal){
 
-privacyModal.classList.remove(
-"active"
-);
+    if(privacyModal){
+
+        privacyModal.classList.remove(
+            "active"
+        );
+
+    }
+
 
 }
 
-}
+
+
 
 
 
 if(privacyButton){
 
-privacyButton.addEventListener(
-"click",
-openPrivacy
-);
+
+    privacyButton.addEventListener(
+    "click",
+    openPrivacy
+    );
+
 
 }
+
 
 
 
 if(privacyClose){
 
-privacyClose.addEventListener(
-"click",
-closePrivacy
-);
+
+    privacyClose.addEventListener(
+    "click",
+    closePrivacy
+    );
+
 
 }
+
 
 
 
 if(privacyOverlay){
 
-privacyOverlay.addEventListener(
-"click",
-closePrivacy
-);
+
+    privacyOverlay.addEventListener(
+    "click",
+    closePrivacy
+    );
+
 
 }
+
+
+
+
 
 
 
@@ -393,16 +447,16 @@ document.addEventListener(
 (e)=>{
 
 
-if(e.key==="Escape"){
-
-closePrivacy();
-
-}
+    if(e.key==="Escape"){
 
 
-}
+        closePrivacy();
 
-);
+
+    }
+
+
+});
 
 
 
