@@ -501,34 +501,24 @@ HERO SLIDER
 
 
 
-    background:
-
-    rgba(255,255,255,.55);
+    background:rgba(255,255,255,.55);
 
 
 
-    backdrop-filter:
-
-    blur(20px);
+    backdrop-filter:blur(20px);
 
 
-
-    -webkit-backdrop-filter:
-
-    blur(20px);
+    -webkit-backdrop-filter:blur(20px);
 
 
 
     color:#000;
 
 
-
     font-size:22px;
 
 
-
     font-weight:300;
-
 
 
     line-height:1;
@@ -538,12 +528,35 @@ HERO SLIDER
     cursor:pointer;
 
 
-
     z-index:5;
 
 
 
+    box-shadow:
+
+    0 10px 30px rgba(0,0,0,.12);
+
+
+
     transition:.3s ease;
+
+
+}
+
+
+
+.slider-arrow:hover{
+
+
+    background:rgba(255,255,255,.85);
+
+
+
+    transform:
+
+    translateY(-50%)
+
+    scale(1.08);
 
 
 }
