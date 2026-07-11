@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 /* =========================
- HERO SLIDER
+HERO SLIDER
 ========================= */
 
 
@@ -13,9 +13,9 @@ const track = document.querySelector(".hero-track");
 
 const slider = document.querySelector(".hero-slider");
 
-const leftBtn = document.querySelector(".slider-arrow-left");
+const leftButton = document.querySelector(".slider-arrow-left");
 
-const rightBtn = document.querySelector(".slider-arrow-right");
+const rightButton = document.querySelector(".slider-arrow-right");
 
 
 
@@ -25,14 +25,19 @@ let currentPosition = 0;
 
 
 
-
 function getMaxPosition(){
 
 
-    if(!track || !slider) return 0;
+    if(!track || !slider){
+        return 0;
+    }
 
 
-    return track.scrollWidth - slider.clientWidth;
+    const max =
+    track.scrollWidth - slider.clientWidth;
+
+
+    return Math.max(max,0);
 
 
 }
@@ -42,10 +47,12 @@ function getMaxPosition(){
 
 
 
+
 function moveSlider(){
 
 
-    const max = getMaxPosition();
+    const max =
+    getMaxPosition();
 
 
 
@@ -76,18 +83,22 @@ function moveSlider(){
 
 
 
+
+
 if(track && slider){
 
 
 
-    const moveAmount = 520;
+    const moveAmount = 460;
 
 
 
-    if(rightBtn){
 
 
-        rightBtn.addEventListener(
+    if(rightButton){
+
+
+        rightButton.addEventListener(
         "click",
         ()=>{
 
@@ -109,10 +120,11 @@ if(track && slider){
 
 
 
-    if(leftBtn){
+
+    if(leftButton){
 
 
-        leftBtn.addEventListener(
+        leftButton.addEventListener(
         "click",
         ()=>{
 
@@ -133,6 +145,7 @@ if(track && slider){
 
 
 
+
     /*
     마우스 휠 가로 이동
     */
@@ -140,20 +153,21 @@ if(track && slider){
 
     slider.addEventListener(
     "wheel",
-    (e)=>{
+    (event)=>{
 
 
         if(
-            Math.abs(e.deltaY)
+            Math.abs(event.deltaY)
             >
-            Math.abs(e.deltaX)
+            Math.abs(event.deltaX)
         ){
 
 
-            e.preventDefault();
+            event.preventDefault();
 
 
-            currentPosition += e.deltaY;
+
+            currentPosition += event.deltaY;
 
 
 
@@ -183,17 +197,16 @@ if(track && slider){
 
 
 /* =========================
- SCROLL REVEAL
+SCROLL REVEAL
 ========================= */
 
 
-
-const reveals =
+const revealElements =
 document.querySelectorAll(".reveal");
 
 
 
-const observer =
+const revealObserver =
 new IntersectionObserver(
 (entries)=>{
 
@@ -210,9 +223,11 @@ entry.target.classList.add(
 );
 
 
-observer.unobserve(
+
+revealObserver.unobserve(
 entry.target
 );
+
 
 
 }
@@ -234,11 +249,13 @@ threshold:0.15
 
 
 
-reveals.forEach(
+revealElements.forEach(
 (element)=>{
 
 
-observer.observe(element);
+revealObserver.observe(
+element
+);
 
 
 });
@@ -252,9 +269,8 @@ observer.observe(element);
 
 
 /* =========================
- PRIVACY MODAL
+PRIVACY MODAL
 ========================= */
-
 
 
 const privacyButton =
@@ -288,6 +304,7 @@ document.querySelector(
 
 
 
+
 function openPrivacy(){
 
 
@@ -307,6 +324,8 @@ function openPrivacy(){
 
 
 
+
+
 function closePrivacy(){
 
 
@@ -320,6 +339,7 @@ function closePrivacy(){
 
 
 }
+
 
 
 
@@ -378,13 +398,12 @@ closePrivacy
 
 
 
-
 document.addEventListener(
 "keydown",
-(e)=>{
+(event)=>{
 
 
-if(e.key === "Escape"){
+if(event.key === "Escape"){
 
 
 closePrivacy();
@@ -396,6 +415,8 @@ closePrivacy();
 }
 
 );
+
+
 
 
 
