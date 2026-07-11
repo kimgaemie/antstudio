@@ -2,6 +2,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
+
+
 /* =========================
  HERO SLIDER
 ========================= */
@@ -21,18 +23,16 @@ let currentPosition = 0;
 
 
 
+
+
+
 function getMaxPosition(){
 
 
     if(!track || !slider) return 0;
 
 
-    const totalWidth = track.scrollWidth;
-
-    const visibleWidth = slider.offsetWidth;
-
-
-    return totalWidth - visibleWidth;
+    return track.scrollWidth - slider.clientWidth;
 
 
 }
@@ -43,6 +43,26 @@ function getMaxPosition(){
 
 
 function moveSlider(){
+
+
+    const max = getMaxPosition();
+
+
+
+    if(currentPosition < 0){
+
+        currentPosition = 0;
+
+    }
+
+
+
+    if(currentPosition > max){
+
+        currentPosition = max;
+
+    }
+
 
 
     track.style.transform =
@@ -56,144 +76,99 @@ function moveSlider(){
 
 
 
+if(track && slider){
 
-if(track && rightBtn && leftBtn){
 
 
+    const moveAmount = 520;
 
-    rightBtn.addEventListener("click",()=>{
 
 
-        const moveAmount = 440;
+    if(rightBtn){
 
 
-        currentPosition += moveAmount;
+        rightBtn.addEventListener(
+        "click",
+        ()=>{
 
 
+            currentPosition += moveAmount;
 
-        const max =
-        getMaxPosition();
 
+            moveSlider();
 
 
-        if(currentPosition > max){
-
-            currentPosition = max;
-
-        }
-
-
-
-        moveSlider();
-
-
-    });
-
-
-
-
-
-
-
-    leftBtn.addEventListener("click",()=>{
-
-
-        const moveAmount = 440;
-
-
-        currentPosition -= moveAmount;
-
-
-
-        if(currentPosition < 0){
-
-            currentPosition = 0;
-
-        }
-
-
-
-        moveSlider();
-
-
-
-    });
-
-
-
-}
-
-
-
-
-
-
-
-
-
-/* =========================
- MOUSE WHEEL HORIZONTAL
-========================= */
-
-
-if(slider){
-
-
-
-slider.addEventListener(
-"wheel",
-(e)=>{
-
-
-    if(
-        Math.abs(e.deltaY)
-        >
-        Math.abs(e.deltaX)
-    ){
-
-
-        e.preventDefault();
-
-
-
-        currentPosition += e.deltaY;
-
-
-
-        const max =
-        getMaxPosition();
-
-
-
-        if(currentPosition < 0){
-
-            currentPosition = 0;
-
-        }
-
-
-
-        if(currentPosition > max){
-
-            currentPosition = max;
-
-        }
-
-
-
-        moveSlider();
-
+        });
 
 
     }
 
 
-},
-{
-    passive:false
-}
 
-);
+
+
+
+
+    if(leftBtn){
+
+
+        leftBtn.addEventListener(
+        "click",
+        ()=>{
+
+
+            currentPosition -= moveAmount;
+
+
+            moveSlider();
+
+
+        });
+
+
+    }
+
+
+
+
+
+
+    /*
+    마우스 휠 가로 이동
+    */
+
+
+    slider.addEventListener(
+    "wheel",
+    (e)=>{
+
+
+        if(
+            Math.abs(e.deltaY)
+            >
+            Math.abs(e.deltaX)
+        ){
+
+
+            e.preventDefault();
+
+
+            currentPosition += e.deltaY;
+
+
+
+            moveSlider();
+
+
+        }
+
+
+
+    },
+    {
+        passive:false
+    }
+    );
 
 
 
@@ -212,26 +187,32 @@ slider.addEventListener(
 ========================= */
 
 
+
 const reveals =
 document.querySelectorAll(".reveal");
 
 
 
-const revealObserver =
+const observer =
 new IntersectionObserver(
 (entries)=>{
 
 
-entries.forEach(entry=>{
+entries.forEach(
+(entry)=>{
 
 
 if(entry.isIntersecting){
 
 
-entry.target.classList.add("show");
+entry.target.classList.add(
+"show"
+);
 
 
-revealObserver.unobserve(entry.target);
+observer.unobserve(
+entry.target
+);
 
 
 }
@@ -253,10 +234,11 @@ threshold:0.15
 
 
 
-reveals.forEach((element)=>{
+reveals.forEach(
+(element)=>{
 
 
-revealObserver.observe(element);
+observer.observe(element);
 
 
 });
@@ -272,6 +254,7 @@ revealObserver.observe(element);
 /* =========================
  PRIVACY MODAL
 ========================= */
+
 
 
 const privacyButton =
@@ -305,6 +288,25 @@ document.querySelector(
 
 
 
+function openPrivacy(){
+
+
+    if(privacyModal){
+
+        privacyModal.classList.add(
+        "active"
+        );
+
+    }
+
+
+}
+
+
+
+
+
+
 function closePrivacy(){
 
 
@@ -324,21 +326,13 @@ function closePrivacy(){
 
 
 
+
 if(privacyButton){
 
 
 privacyButton.addEventListener(
 "click",
-()=>{
-
-
-privacyModal.classList.add(
-"active"
-);
-
-
-}
-
+openPrivacy
 );
 
 
@@ -384,6 +378,7 @@ closePrivacy
 
 
 
+
 document.addEventListener(
 "keydown",
 (e)=>{
@@ -401,7 +396,6 @@ closePrivacy();
 }
 
 );
-
 
 
 
