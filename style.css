@@ -448,33 +448,48 @@ CATEGORY IMAGES
 ========================= */
 
 
-.category-feature{
+/* =========================
+CATEGORY IMAGES
+========================= */
 
-    margin-top:70px;
+
+.category-images,
+.small-grid{
+
+    margin-top:60px;
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(4,1fr);
+
+    gap:20px;
 
 }
 
 
 
-.category-feature img{
+.category-images img,
+.small-grid img{
 
     width:100%;
 
-    aspect-ratio:16/9;
+    aspect-ratio:16/10;
 
     object-fit:cover;
 
-    border-radius:32px;
+    border-radius:22px;
 
-    transition:.4s ease;
+    transition:.35s ease;
 
 }
 
 
 
-.category-feature img:hover{
+.category-images img:hover,
+.small-grid img:hover{
 
-    transform:scale(1.015);
+    transform:scale(1.03);
 
 }
 
