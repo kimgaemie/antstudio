@@ -912,16 +912,29 @@ CATEGORY IMAGE GRID
 
 
 .category-images > img,
-.extra-row img{
+.category-images > a,
+.extra-row img,
+.extra-row a{
 
 
     width:100%;
 
 
+}
+
+
+
+.category-images > a,
+.extra-row a{
+
+
+    display:block;
+
+
     aspect-ratio:16/10;
 
 
-    object-fit:cover;
+    overflow:hidden;
 
 
     border-radius:14px;
@@ -940,7 +953,25 @@ CATEGORY IMAGE GRID
 
 
 
-.category-images img:hover{
+.category-images > a img,
+.extra-row a img{
+
+
+    width:100%;
+
+
+    height:100%;
+
+
+    object-fit:cover;
+
+
+}
+
+
+
+.category-images > a:hover,
+.extra-row a:hover{
 
 
     transform:scale(1.03);
@@ -952,9 +983,6 @@ CATEGORY IMAGE GRID
 
 
 }
-
-
-
 
 
 
@@ -2070,20 +2098,14 @@ MOBILE
 
 
 
-.category-images > img,
-
-
-.extra-row img{
+.category-images > a,
+.extra-row a{
 
 
     border-radius:18px;
 
 
 }
-
-
-
-
 
 
 
