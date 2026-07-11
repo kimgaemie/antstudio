@@ -474,7 +474,17 @@ HERO SLIDER APPLE STYLE
     font-size:14px;
 
 
-    letter-spacing:.04em;
+    font-family:
+    "Helvetica Neue",
+    Helvetica,
+    Arial,
+    sans-serif;
+
+
+    font-weight:300;
+
+
+    letter-spacing:.01em;
 
 
 }
@@ -483,15 +493,24 @@ HERO SLIDER APPLE STYLE
 
 .hero-card-overlay h2{
 
+    margin-top:2px;
 
-    margin-top:8px;
+    font-size:22px;
+
+    font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    "SF Pro Display",
+    "Helvetica Neue",
+    Helvetica,
+    Arial,
+    sans-serif;
 
 
-    font-size:26px;
+    font-weight:500;
 
 
-    letter-spacing:-.04em;
-
+    letter-spacing:-.01em;
 
 }
 
@@ -558,6 +577,14 @@ HERO SLIDER APPLE STYLE
 
 
     font-size:22px;
+	
+	font-family:
+		-apple-system,
+		BlinkMacSystemFont,
+		"SF Pro Display",
+		"Helvetica Neue",
+		Arial,
+		sans-serif;
 
 
 
