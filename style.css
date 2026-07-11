@@ -208,7 +208,7 @@ HERO
 
 .hero-copy p{
 
-    margin-top:28px;
+    margin-top:20px;
 
     font-size:20px;
 
@@ -216,7 +216,7 @@ HERO
 
     line-height:1.5;
 
-    letter-spacing:.03em;
+    letter-spacing:.1em;
 
 }
 
