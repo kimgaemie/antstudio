@@ -39,6 +39,8 @@ body{
     Arial,
 
     sans-serif;
+	
+	overflow-x:hidden;
 
 
     color:#000;
@@ -190,15 +192,11 @@ HERO
 
 .hero{
 
-
     padding-top:170px;
 
-
-    overflow:hidden;
-
+    overflow:visible;
 
 }
-
 
 
 .hero-copy{
@@ -318,11 +316,16 @@ HERO SLIDER
 ========================= */
 
 
-.hero-slider-wrap{
+/* =========================
+HERO SLIDER APPLE STYLE
+========================= */
 
+
+.hero-slider-wrap{
 
     position:relative;
 
+    padding-bottom:40px;
 
 }
 
@@ -331,7 +334,7 @@ HERO SLIDER
 .hero-slider{
 
 
-    overflow:hidden;
+    overflow:visible;
 
 
 }
@@ -343,15 +346,11 @@ HERO SLIDER
 
     display:flex;
 
-
-    gap:24px;
-
+    gap:36px;
 
     width:max-content;
 
-
     padding-left:40px;
-
 
     transition:.45s ease;
 
@@ -360,7 +359,10 @@ HERO SLIDER
 
 
 
+
+
 .hero-card{
+
 
     width:440px;
 
@@ -368,30 +370,64 @@ HERO SLIDER
 
     flex-shrink:0;
 
-    overflow:hidden;
-
-    border-radius:28px;
 
     position:relative;
 
 
+    border-radius:28px;
+
+
+    overflow:hidden;
+
+
+    background:#fff;
+
+
     box-shadow:
 
-    0 16px 40px rgba(0,0,0,0.06);
+    0 18px 45px rgba(0,0,0,.08);
+
+
+    transition:
+
+    transform .4s ease,
+
+    box-shadow .4s ease;
+
 
 }
+
+
+
+
+.hero-card:hover{
+
+
+    transform:translateY(-6px);
+
+
+    box-shadow:
+
+    0 25px 60px rgba(0,0,0,.12);
+
+
+}
+
+
 
 
 .hero-card img{
 
 
-    height:100%;
+    width:100%;
 
+    height:100%;
 
     object-fit:cover;
 
 
 }
+
 
 
 
