@@ -272,6 +272,8 @@ SCROLL REVEAL
 
 
 const reveals = document.querySelectorAll(".reveal");
+	
+	console.log(reveals);
 
 
 if(reveals.length > 0){
