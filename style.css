@@ -39,8 +39,9 @@ body{
     Arial,
 
     sans-serif;
-	
-	overflow-x:hidden;
+
+
+    overflow-x:hidden;
 
 
     color:#000;
@@ -316,11 +317,6 @@ HERO SLIDER
 ========================= */
 
 
-/* =========================
-HERO SLIDER APPLE STYLE
-========================= */
-
-
 .hero-slider-wrap{
 
     position:relative;
@@ -497,13 +493,21 @@ HERO SLIDER APPLE STYLE
 
     font-size:22px;
 
+
     font-family:
+
     -apple-system,
+
     BlinkMacSystemFont,
+
     "SF Pro Display",
+
     "Helvetica Neue",
+
     Helvetica,
+
     Arial,
+
     sans-serif;
 
 
@@ -513,6 +517,10 @@ HERO SLIDER APPLE STYLE
     letter-spacing:-.01em;
 
 }
+
+
+
+
 
 
 
@@ -566,25 +574,27 @@ HERO SLIDER APPLE STYLE
     blur(20px);
 
 
-    -webkit-backdrop-filter:
-
-    blur(20px);
-
-
 
     color:#000;
 
 
 
     font-size:22px;
-	
-	font-family:
-		-apple-system,
-		BlinkMacSystemFont,
-		"SF Pro Display",
-		"Helvetica Neue",
-		Arial,
-		sans-serif;
+
+
+    font-family:
+
+    -apple-system,
+
+    BlinkMacSystemFont,
+
+    "SF Pro Display",
+
+    "Helvetica Neue",
+
+    Arial,
+
+    sans-serif;
 
 
 
@@ -635,43 +645,6 @@ HERO SLIDER APPLE STYLE
 
 }
 
-
-
-.slider-arrow:hover{
-
-
-    background:rgba(255,255,255,.85);
-
-
-
-    transform:
-
-    translateY(-50%)
-
-    scale(1.08);
-
-
-}
-
-
-
-.slider-arrow:hover{
-
-
-    background:
-
-    rgba(255,255,255,.85);
-
-
-
-    transform:
-
-    translateY(-50%)
-
-    scale(1.08);
-
-
-}
 
 
 .slider-arrow-left{
@@ -837,7 +810,6 @@ WORK
 
 /* =========================
 CATEGORY TAGS
-APPLE STYLE
 ========================= */
 
 
@@ -931,8 +903,16 @@ APPLE STYLE
 
 }
 
+
+
+
+
+
+
+
+
 /* =========================
-WORK IMAGE DRAG SLIDER
+CATEGORY IMAGE GRID
 ========================= */
 
 
@@ -942,61 +922,33 @@ WORK IMAGE DRAG SLIDER
     margin-top:70px;
 
 
-    display:flex;
+    display:grid;
+
+
+    grid-template-columns:
+
+    repeat(3,1fr);
 
 
     gap:30px;
 
 
-    overflow-x:auto;
-
-
-    cursor:grab;
-
-
-    scroll-behavior:smooth;
-
-
-    scrollbar-width:none;
-
-
-    user-select:none;
-
-
 }
 
 
 
-.category-images::-webkit-scrollbar{
 
 
-    display:none;
+.category-images > img,
 
 
-}
+.extra-row img{
 
 
-
-.category-images.active{
-
-
-    cursor:grabbing;
+    width:100%;
 
 
-}
-
-
-
-.category-images img{
-
-
-    flex:0 0 auto;
-
-
-    width:520px;
-
-
-    height:330px;
+    aspect-ratio:16/10;
 
 
     object-fit:cover;
@@ -1005,10 +957,11 @@ WORK IMAGE DRAG SLIDER
     border-radius:28px;
 
 
-    transition:.35s ease;
+    transition:.4s ease;
 
 
 }
+
 
 
 
@@ -1027,6 +980,114 @@ WORK IMAGE DRAG SLIDER
 
 
 
+
+/* =========================
+MORE IMAGE ROW
+========================= */
+
+
+.extra-row{
+
+
+    display:none;
+
+
+    grid-column:1 / -1;
+
+
+    grid-template-columns:
+
+    repeat(3,1fr);
+
+
+    gap:30px;
+
+
+}
+
+
+
+/* =========================
+MORE IMAGE CONTROL
+========================= */
+
+
+.extra-row{
+
+    display:none;
+
+    grid-column:1 / -1;
+
+    grid-template-columns:
+    repeat(3,1fr);
+
+    gap:30px;
+
+}
+
+
+.extra-row.show{
+
+    display:grid;
+
+}
+
+
+
+
+
+
+
+
+
+/* =========================
+MORE BUTTON
+========================= */
+
+.more-button{
+
+    display:block;
+
+    margin:40px auto 0;
+
+
+    padding:10px 24px;
+
+
+    border-radius:50px;
+
+
+    border:1px solid #ddd;
+
+
+    background:white;
+
+
+    font-size:13px;
+
+
+    letter-spacing:-0.03em;
+
+
+    cursor:pointer;
+
+
+    transition:.3s ease;
+
+
+}
+
+
+.more-button:hover{
+
+
+    background:#000;
+
+
+    color:white;
+
+
+}
 
 /* =========================
 CONTACT
@@ -1068,6 +1129,8 @@ CONTACT
 
 
 
+
+
 .contact-eyebrow{
 
 
@@ -1081,6 +1144,8 @@ CONTACT
 
 
 }
+
+
 
 
 
@@ -1103,6 +1168,8 @@ CONTACT
 
 
 
+
+
 .contact-intro p{
 
 
@@ -1113,6 +1180,8 @@ CONTACT
 
 
 }
+
+
 
 
 
@@ -1150,6 +1219,8 @@ FORM
 
 
 
+
+
 .form-group label{
 
 
@@ -1163,6 +1234,8 @@ FORM
 
 
 }
+
+
 
 
 
@@ -1191,7 +1264,12 @@ textarea{
     outline:none;
 
 
+    font-family:inherit;
+
+
 }
+
+
 
 
 
@@ -1202,6 +1280,8 @@ textarea{
 
 
 }
+
+
 
 
 
@@ -1242,6 +1322,8 @@ PRIVACY
 
 
 
+
+
 .privacy-check{
 
 
@@ -1264,6 +1346,8 @@ PRIVACY
 
 
 
+
+
 .privacy-check input{
 
 
@@ -1277,6 +1361,8 @@ PRIVACY
 
 
 }
+
+
 
 
 
@@ -1298,7 +1384,12 @@ PRIVACY
     cursor:pointer;
 
 
+    font-size:14px;
+
+
 }
+
+
 
 
 
@@ -1324,6 +1415,24 @@ PRIVACY
 
 
     cursor:pointer;
+
+
+    font-size:15px;
+
+
+    transition:.3s ease;
+
+
+}
+
+
+
+
+
+.submit-button:hover{
+
+
+    opacity:.8;
 
 
 }
@@ -1360,6 +1469,8 @@ PRIVACY MODAL
 
 
 
+
+
 .privacy-modal.active{
 
 
@@ -1367,6 +1478,8 @@ PRIVACY MODAL
 
 
 }
+
+
 
 
 
@@ -1383,6 +1496,8 @@ PRIVACY MODAL
 
 
 }
+
+
 
 
 
@@ -1425,6 +1540,8 @@ PRIVACY MODAL
 
 
 
+
+
 .privacy-close{
 
 
@@ -1455,6 +1572,39 @@ PRIVACY MODAL
 
 
 
+.privacy-content h3{
+
+
+    margin-top:30px;
+
+
+    margin-bottom:10px;
+
+
+    font-size:18px;
+
+
+}
+
+
+
+
+
+.privacy-content p{
+
+
+    line-height:1.7;
+
+
+    color:#555;
+
+
+}
+
+
+
+
+
 
 
 
@@ -1474,6 +1624,8 @@ footer{
 
 
 
+
+
 .footer-inner{
 
 
@@ -1490,6 +1642,18 @@ footer{
 
 
     letter-spacing:.03em;
+
+
+}
+
+
+
+
+
+.footer-inner strong{
+
+
+    color:#000;
 
 
 }
@@ -1522,6 +1686,8 @@ REVEAL
 
 
 }
+
+
 
 
 
@@ -1591,16 +1757,31 @@ TABLET
 @media(max-width:1024px){
 
 
-.category-images img{
+
+.category-images{
 
 
-    width:430px;
+    grid-template-columns:
 
-
-    height:280px;
+    repeat(2,1fr);
 
 
 }
+
+
+
+
+.extra-row{
+
+
+    grid-template-columns:
+
+    repeat(2,1fr);
+
+
+}
+
+
 
 
 
@@ -1611,6 +1792,7 @@ TABLET
 
 
 }
+
 
 
 }
@@ -1645,6 +1827,8 @@ MOBILE
 
 
 
+
+
 .logo img{
 
 
@@ -1652,6 +1836,8 @@ MOBILE
 
 
 }
+
+
 
 
 
@@ -1672,6 +1858,8 @@ MOBILE
 
 
 
+
+
 .hero{
 
 
@@ -1679,6 +1867,8 @@ MOBILE
 
 
 }
+
+
 
 
 
@@ -1694,6 +1884,8 @@ MOBILE
 
 
 
+
+
 .hero-copy h1{
 
 
@@ -1701,6 +1893,8 @@ MOBILE
 
 
 }
+
+
 
 
 
@@ -1714,6 +1908,8 @@ MOBILE
 
 
 
+
+
 .hero-track{
 
 
@@ -1724,6 +1920,8 @@ MOBILE
 
 
 
+
+
 .hero-card{
 
 
@@ -1731,6 +1929,8 @@ MOBILE
 
 
 }
+
+
 
 
 
@@ -1762,6 +1962,8 @@ MOBILE
 
 
 
+
+
 .work-title{
 
 
@@ -1769,6 +1971,8 @@ MOBILE
 
 
 }
+
+
 
 
 
@@ -1782,6 +1986,8 @@ MOBILE
 
 
 
+
+
 .category-text h3{
 
 
@@ -1792,6 +1998,8 @@ MOBILE
 
 
 
+
+
 .category-text h4{
 
 
@@ -1799,6 +2007,8 @@ MOBILE
 
 
 }
+
+
 
 
 
@@ -1814,8 +2024,6 @@ MOBILE
 
 
 
-
-
 .category-tags{
 
 
@@ -1823,6 +2031,8 @@ MOBILE
 
 
 }
+
+
 
 
 
@@ -1843,12 +2053,15 @@ MOBILE
 
 
 
-
-
 .category-images{
 
 
     margin-top:40px;
+
+
+    grid-template-columns:
+
+    1fr;
 
 
     gap:16px;
@@ -1858,19 +2071,37 @@ MOBILE
 
 
 
-.category-images img{
 
 
-    width:320px;
+.extra-row{
 
 
-    height:210px;
+    grid-template-columns:
+
+    1fr;
+
+
+    gap:16px;
+
+
+}
+
+
+
+
+
+.category-images > img,
+
+
+.extra-row img{
 
 
     border-radius:18px;
 
 
 }
+
+
 
 
 
@@ -1890,13 +2121,20 @@ MOBILE
 
 
 
+
+
 .contact-inner{
 
 
     grid-template-columns:1fr;
 
 
+    gap:60px;
+
+
 }
+
+
 
 
 
@@ -1910,6 +2148,8 @@ MOBILE
 
 
 
+
+
 .contact-intro p{
 
 
@@ -1917,6 +2157,8 @@ MOBILE
 
 
 }
+
+
 
 
 
@@ -1932,8 +2174,6 @@ MOBILE
 
 
 
-
-
 .privacy-check{
 
 
@@ -1941,6 +2181,8 @@ MOBILE
 
 
 }
+
+
 
 
 
@@ -1959,8 +2201,6 @@ MOBILE
 
 
 
-
-
 footer{
 
 
@@ -1974,3 +2214,4 @@ footer{
 
 
 }
+

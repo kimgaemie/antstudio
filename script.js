@@ -1,9 +1,6 @@
 document.addEventListener("DOMContentLoaded",()=>{
 
 
-
-
-
 /* =========================
 HERO SLIDER
 ========================= */
@@ -25,17 +22,11 @@ const heroRight =
 document.querySelector(".slider-arrow-right");
 
 
-
 let heroPosition = 0;
 
 
 
-
-
-
-
 function getHeroMax(){
-
 
 if(!heroTrack || !heroSlider){
 
@@ -49,21 +40,14 @@ heroTrack.scrollWidth - heroSlider.clientWidth,
 0
 );
 
-
 }
-
-
-
-
 
 
 
 function moveHero(){
 
-
 const max =
 getHeroMax();
-
 
 
 if(heroPosition < 0){
@@ -73,7 +57,6 @@ heroPosition = 0;
 }
 
 
-
 if(heroPosition > max){
 
 heroPosition = max;
@@ -81,17 +64,10 @@ heroPosition = max;
 }
 
 
-
 heroTrack.style.transform =
 `translateX(-${heroPosition}px)`;
 
-
-
 }
-
-
-
-
 
 
 
@@ -99,22 +75,19 @@ heroTrack.style.transform =
 if(heroTrack){
 
 
-
 if(heroRight){
-
 
 heroRight.addEventListener(
 "click",
 ()=>{
 
-
-heroPosition += 460;
-
+heroPosition += 476;
 
 moveHero();
 
+}
 
-});
+);
 
 }
 
@@ -122,26 +95,23 @@ moveHero();
 
 if(heroLeft){
 
-
 heroLeft.addEventListener(
 "click",
 ()=>{
 
-
-heroPosition -= 460;
-
+heroPosition -= 476;
 
 moveHero();
 
+}
 
-});
+);
 
 }
 
 
 
 if(heroSlider){
-
 
 heroSlider.addEventListener(
 "wheel",
@@ -154,7 +124,6 @@ Math.abs(e.deltaY)
 Math.abs(e.deltaX)
 ){
 
-
 e.preventDefault();
 
 
@@ -163,7 +132,6 @@ heroPosition += e.deltaY;
 
 moveHero();
 
-
 }
 
 
@@ -171,8 +139,8 @@ moveHero();
 {
 passive:false
 }
-);
 
+);
 
 }
 
@@ -188,178 +156,63 @@ passive:false
 
 
 /* =========================
-WORK IMAGE DRAG SLIDER
+WORK MORE BUTTON
+3개씩 열기
 ========================= */
 
 
-const dragSliders =
-document.querySelectorAll(".drag-slider");
+const moreButtons =
+document.querySelectorAll(".more-button");
+
+
+moreButtons.forEach(button=>{
+
+
+const categoryImages =
+button.previousElementSibling;
+
+
+const extraRows =
+categoryImages.querySelectorAll(".extra-row");
+
+
+let currentIndex = 0;
 
 
 
-
-dragSliders.forEach(slider=>{
-
-
-let isDown=false;
-
-let startX;
-
-let scrollLeft;
+button.addEventListener("click",()=>{
 
 
+if(currentIndex < extraRows.length){
 
 
-
-slider.addEventListener(
-"mousedown",
-(e)=>{
+extraRows[currentIndex].style.display="grid";
 
 
-isDown=true;
+currentIndex++;
 
-
-slider.classList.add(
-"active"
-);
-
-
-
-startX =
-e.pageX - slider.offsetLeft;
-
-
-
-scrollLeft =
-slider.scrollLeft;
-
-
-
-});
-
-
-
-
-
-
-
-
-slider.addEventListener(
-"mouseleave",
-()=>{
-
-
-isDown=false;
-
-
-slider.classList.remove(
-"active"
-);
-
-
-});
-
-
-
-
-
-
-
-slider.addEventListener(
-"mouseup",
-()=>{
-
-
-isDown=false;
-
-
-slider.classList.remove(
-"active"
-);
-
-
-});
-
-
-
-
-
-
-
-slider.addEventListener(
-"mousemove",
-(e)=>{
-
-
-if(!isDown){
-
-return;
 
 }
 
 
 
-e.preventDefault();
+if(currentIndex >= extraRows.length){
 
 
-
-const x =
-e.pageX - slider.offsetLeft;
+button.innerText="접기";
 
 
-
-const move =
-(x-startX)*1.5;
+}else{
 
 
+button.innerText="더보기";
 
-slider.scrollLeft =
-scrollLeft - move;
+
+}
 
 
 
 });
-
-
-
-
-
-
-
-
-
-slider.addEventListener(
-"wheel",
-(e)=>{
-
-
-if(
-Math.abs(e.deltaY)
->
-Math.abs(e.deltaX)
-){
-
-
-e.preventDefault();
-
-
-
-slider.scrollLeft += e.deltaY;
-
-
-
-}
-
-
-},
-{
-passive:false
-}
-
-);
-
-
-
 
 
 });
@@ -387,23 +240,18 @@ new IntersectionObserver(
 (entries)=>{
 
 
-entries.forEach(
-(entry)=>{
+entries.forEach(entry=>{
 
 
 if(entry.isIntersecting){
 
 
-entry.target.classList.add(
-"show"
-);
-
+entry.target.classList.add("show");
 
 
 observer.unobserve(
 entry.target
 );
-
 
 
 }
@@ -414,16 +262,14 @@ entry.target
 
 },
 {
-threshold:.15
+threshold:0.15
 }
+
 );
 
 
 
-
-
-reveals.forEach(
-(item)=>{
+reveals.forEach(item=>{
 
 
 observer.observe(item);
@@ -450,19 +296,16 @@ document.getElementById(
 );
 
 
-
 const privacyModal =
 document.getElementById(
 "privacyModal"
 );
 
 
-
 const privacyClose =
 document.getElementById(
 "privacyClose"
 );
-
 
 
 const privacyOverlay =
@@ -473,99 +316,64 @@ document.querySelector(
 
 
 
-
-
-
 function openPrivacy(){
 
-
 if(privacyModal){
-
 
 privacyModal.classList.add(
 "active"
 );
 
-
 }
 
-
 }
-
-
-
-
 
 
 
 function closePrivacy(){
 
-
 if(privacyModal){
-
 
 privacyModal.classList.remove(
 "active"
 );
 
-
 }
 
-
 }
-
-
-
-
 
 
 
 if(privacyButton){
-
 
 privacyButton.addEventListener(
 "click",
 openPrivacy
 );
 
-
 }
 
 
 
-
-
-
 if(privacyClose){
-
 
 privacyClose.addEventListener(
 "click",
 closePrivacy
 );
 
-
 }
 
 
 
-
-
-
 if(privacyOverlay){
-
 
 privacyOverlay.addEventListener(
 "click",
 closePrivacy
 );
 
-
 }
-
-
-
-
 
 
 
@@ -576,14 +384,15 @@ document.addEventListener(
 
 if(e.key==="Escape"){
 
-
 closePrivacy();
-
 
 }
 
 
-});
+}
+
+);
+
 
 
 });
