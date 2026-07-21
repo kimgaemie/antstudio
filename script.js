@@ -188,7 +188,7 @@ moreButtons.forEach(button=>{
 
 
 
-    let currentIndex = 0;
+    let currentIndex = 1;
 
 
 
@@ -228,28 +228,23 @@ moreButtons.forEach(button=>{
 
 
         // 접기
-        else{
+       else{
 
+    extraRows.forEach((row,index)=>{
 
-            extraRows.forEach(row=>{
-
-
-                row.classList.remove("show");
-
-
-            });
-
-
-
-            currentIndex = 0;
-
-
-
-            button.innerText =
-            "더보기";
-
-
+        if(index===0){
+            row.classList.add("show");
+        }else{
+            row.classList.remove("show");
         }
+
+    });
+
+    currentIndex = 1;
+
+    button.innerText = "더보기";
+
+}
 
 
 
